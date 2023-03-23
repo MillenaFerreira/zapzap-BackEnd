@@ -36,7 +36,7 @@ app.get('/v1/whatsapp/perfil/telefone/:phone', cors(), async function (request, 
         statusCode = 400
         dadosPerfis.message = 'Não foi possível processar pois os dados de entrada que foi enviado não corresponde ao exigido, confira o valor, pois não pode ser vazio.'
     } else {
-        
+
         let contatos = jsonContatos.getTelefone(telefonePerfil)
 
         if (contatos) {
@@ -47,11 +47,12 @@ app.get('/v1/whatsapp/perfil/telefone/:phone', cors(), async function (request, 
         }
     }
 
+    console.log(dadosPerfis)
     response.status(statusCode)
     response.json(dadosPerfis)
 
 })
 
-app.listen(8080, function(){
+app.listen(8080, function () {
     console.log('Servidor aguardando requisições na porta 8080.')
 })
